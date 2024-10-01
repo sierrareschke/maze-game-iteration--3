@@ -1,0 +1,46 @@
+<configuration scan="true">
+    # Full blown logging appender
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    # Simple logging -- equivalent to System.out.println()
+    <appender name="Game_Status_Yellow" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%yellow(%msg%n)</pattern>
+        </encoder>
+    </appender>
+
+    # Game Status Appender --- just for logging the state of the game
+    <appender name="Game_Status_Cyan" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%cyan(%msg)</pattern>
+        </encoder>
+    </appender>
+
+    # File appender
+    <appender name="File_Output" class="ch.qos.logback.core.FileAppender">
+        <file>polymorphia.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%msg</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="File_Output" />
+    </root>
+
+    <logger name="csci.ooad.polymorphia" level="INFO" additivity="false">
+        <appender-ref ref="Game_Status_Yellow" />
+    </logger>
+
+    <logger name="csci.ooad.polymorphia.MazeTest" level="INFO" additivity="false">
+        <appender-ref ref="Game_Status_Cyan" />
+        <appender-ref ref="File_Output" />
+    </logger>
+
+</configuration>
