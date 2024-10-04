@@ -13,6 +13,46 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 class MazeTest {
+
+
+    // NEW FROM HW 4
+
+//
+//    @Test
+//    void testSequentialDistribution() {
+//        Maze maze = Maze.newBuilder()
+//                .createNFullyConnectedRooms(4)
+//                .distributeSequentially()
+//                .createAndAddFoodItems("hot dog", "popcorn", "chili dog", "Coke")
+//                .build();
+//
+//        // Since we added four food items into a four-room maze, with sequential distribution, each room should have some food.
+//        for (Maze.Room room : maze.getRooms()) {
+//            assertTrue(room.hasFood());
+//        }
+//    }
+//
+//    @Test
+//    void testRandomDistribution() {
+//        Maze maze = Maze.newBuilder()
+//                .createNFullyConnectedRooms(10)
+//                .distributeRandomly()
+//                .createAndAddFoodItems("hot dog", "popcorn", "chili dog", "Coke",
+//                        "apple", "bread", "orange", "banana", "ham", "salad")
+//                .build();
+//
+//        // Since we added four food items into a four-room maze, with random distribution,
+//        // it's likely (not assured) that one room will not have any food in it.
+//        assertTrue(maze.getRooms().stream().anyMatch(room -> !room.hasFood()));
+//    }
+
+    // DONE WITH NEW TESTS
+
+
+
+
+
+
     private static final Logger logger = LoggerFactory.getLogger(MazeTest.class);
 
     public static String[][] TWO_X_TWO_ROOM_NAMES = new String[][]{
