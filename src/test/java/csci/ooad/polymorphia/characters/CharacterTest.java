@@ -61,7 +61,7 @@ class CharacterTest {
         joe.fight(ogre);
         System.out.println("After the fight, Joe's health is: " + joe.getHealth());
 
-        // Joe should have lost 0.5 health and he started with a integer health value
+        // Joe should have lost 0.5 health and he started with an integer health value
         // of 5.0. After the fight he should have 4.5 health. Or 3.5, or 2.5, etc. depending
         // upon the outcome of the fight. So, we just check to make sure the health is x.5
         assertEquals(0.5, joe.getHealth() % 1);
@@ -122,4 +122,7 @@ class CharacterTest {
         Creature creature = new Creature("Creature");
         creature.doAction();
     }
+
+
+    // TODO - add tests for Demon, Coward, Glutton, Knight
 }

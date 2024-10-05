@@ -5,6 +5,8 @@ import csci.ooad.polymorphia.Room;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 
 public class Adventurer extends Character {
     private static final Logger log = LoggerFactory.getLogger(Adventurer.class);
@@ -27,6 +29,9 @@ public class Adventurer extends Character {
         super.enterRoom(room);
     }
 
+    // TODO: case with Adventurer (health:8), Knight (health:3) and regular creature --> piazza
+    // TODO: case with Adventurer, Creature (health:8), and Demon (health:2) --> piazza
+    // TODO --> explain choice in README
     public void doAction() {
         if (shouldFight()) {
             fight(getCurrentLocation().getRandomCreature());
@@ -36,8 +41,7 @@ public class Adventurer extends Character {
             move();
         }
     }
-
-    private void eatFood() {
+    public void eatFood() {
         Food foodItem = getCurrentLocation().eatFoodItem();
         log.info(getName() + " just ate " + foodItem);
         this.gainHealth(foodItem.getHealthValue());
@@ -54,6 +58,19 @@ public class Adventurer extends Character {
     Boolean creatureInRoomWithMe() {
         return getCurrentLocation().hasLivingCreatures();
     }
+
+    // TODO write test
+    Boolean demonInRoomWithMe() {
+        boolean demonPresent = false;
+        List<Creature> creaturesPresent = getCurrentLocation().getLivingCreatures();
+        for (Creature creature : creaturesPresent ){
+            if (creature instanceof Demon) {
+                demonPresent = true;
+            }
+        }
+        return demonPresent;
+    }
+
 
     @Override
     public Boolean isAdventurer() {

@@ -2,6 +2,7 @@ package csci.ooad.polymorphia;
 
 import csci.ooad.polymorphia.characters.Adventurer;
 import csci.ooad.polymorphia.characters.Creature;
+import csci.ooad.polymorphia.characters.Demon;
 import csci.ooad.polymorphia.characters.Character;
 
 import java.util.ArrayList;
@@ -124,6 +125,15 @@ public class Room {
     public Creature getHealthiestCreature() {
         return getLivingCreatures().stream().max(Comparator.naturalOrder()).get();
     }
+
+    public Demon getHealthiestDemon() {
+        return getLivingCreatures().stream()
+                .filter(creature -> creature instanceof Demon)  // Only consider Demons
+                .map(creature -> (Demon) creature)  // Cast to Demon
+                .max(Comparator.naturalOrder())     // Find the healthiest Demon
+                .orElse(null);  // Return null if no Demons are found
+    }
+
 
     public boolean hasFood() {
         return !foodItems.isEmpty();
