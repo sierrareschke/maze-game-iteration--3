@@ -6,7 +6,7 @@ public class Die {
     private static Die singleton;
     private final Random rand = new Random();
 
-    private Die() {
+    public Die() {
     }
 
     private Integer roll(Integer sides) {
