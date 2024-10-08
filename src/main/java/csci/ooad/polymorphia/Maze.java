@@ -244,20 +244,103 @@ public class Maze  {
             return this;
         }
 
+        private void distributeObjectsRandomly(List<Object> objects){
+
+            // Get random index
+            Random random = new Random();
+            int numRooms = this.rooms.size();
+
+            // For each object, generate a rand index and add obj to it
+            for(Object object : objects){
+
+                int randomIndex = random.nextInt(numRooms);
+
+                if (object instanceof Character) {
+                    this.rooms.get(randomIndex).add((Character)object);
+                } else if (object instanceof Food) {
+                    this.rooms.get(randomIndex).add((Food)object);
+                } else {
+                    throw new IllegalArgumentException("object must be a Character or Food");
+                }
+            }
+
+        }
+
+        private void distributeObjectsSequentially(List<Object> objects){
+
+            // Room index
+            int roomIndex = 0;
+
+            // For each object, add to room and add one to room index
+            for(Object object : objects){
+
+                if (object instanceof Character) {
+                    this.rooms.get(roomIndex).add((Character)object);
+                } else if (object instanceof Food) {
+                    this.rooms.get(roomIndex).add((Food)object);
+                } else {
+                    throw new IllegalArgumentException("object must be a Character or Food");
+                }
+
+                roomIndex = (roomIndex + 1) % this.rooms.size();
+
+            }
+        }
+
         public MazeBuilder createAndAddFoodItems(List<String> foodNames){
             // TODO
+
+            List<Food> foodsToAdd = new ArrayList<>();
+            List<Object> foodsAsObjects = new ArrayList<>(foodsToAdd);
+
+            if(distributeRandomly){
+
+                // Randomly distribute items
+                distributeObjectsRandomly(foodsAsObjects);
+
+            } else {
+                // Sequentially distribute items
+                distributeObjectsSequentially(foodsAsObjects);
+            }
+
             return this;
         }
 
         // TODO - Arguments???
         public MazeBuilder createAndAddAdventurers(List<String> adventurerNames){
             // TODO
+
+            List<Food> adventurersToAdd = new ArrayList<>();
+            List<Object> adventurersAsObjects = new ArrayList<>(adventurersToAdd);
+
+            if(distributeRandomly){
+                // Randomly distribute items
+                distributeObjectsRandomly(adventurersAsObjects);
+            } else {
+                // Sequentially distribute items
+                distributeObjectsSequentially(adventurersAsObjects);
+            }
+
             return this;
         }
 
         // TODO - Arguments???
         public MazeBuilder createAndAddCreatures(List<String> creatureNames){
             // TODO
+
+            List<Food> creaturesToAdd = new ArrayList<>();
+            List<Object> creaturesAsObjects = new ArrayList<>(creaturesToAdd);
+
+            if(distributeRandomly){
+
+                // Randomly distribute items
+                distributeObjectsRandomly(creaturesAsObjects);
+
+            } else {
+                // Sequentially distribute items
+                distributeObjectsSequentially(creaturesAsObjects);
+            }
+
             return this;
         }
 
