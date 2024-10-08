@@ -3,6 +3,8 @@ package csci.ooad.polymorphia;
 import csci.ooad.polymorphia.characters.Adventurer;
 import csci.ooad.polymorphia.characters.Character;
 import csci.ooad.polymorphia.characters.Creature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -99,18 +101,176 @@ Pass these factories into your Maze.Builder class at construction time, or it's 
 
 public class Maze  {
     private final Random rand = new Random();
+    private static final Logger logger = LoggerFactory.getLogger(Maze.class);
 
     private final List<Room> rooms;
+    private final boolean distributeRandomly; // 1 = rand, 0 = simultaneous distribution
 
-    private Maze(List<Room> rooms) {
-        this.rooms = rooms;
+
+    public Maze(MazeBuilder builder) {
+        this.rooms = builder.rooms;
+        this.distributeRandomly = builder.distributeRandomly;
     }
 
-    public static class Builder {
-        public static Builder getNewBuilder() {
-            return new Builder();
+
+
+
+    public static class MazeBuilder {
+        private List<Room> rooms;
+        private boolean distributeRandomly;
+
+        private MazeBuilder() {}
+
+        public static MazeBuilder newInstance() {
+            return new MazeBuilder();
         }
+
+        public MazeBuilder createNbyMGrid(int n, int m) {
+
+            if(n <= 0 || m <= 0) {
+                throw new IllegalArgumentException("n and m must be positive");
+            }
+
+            // Create a 2D list to store the rooms
+            Room[][] roomGrid = new Room[n][m];
+            List<Room> newRooms = new ArrayList<>();
+
+            // Create all the rooms
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    String roomName = "Room " + (i * m + j + 1); // Calculate room number
+                    Room room = new Room(roomName);
+                    roomGrid[i][j] = room;
+                    newRooms.add(room);
+                }
+            }
+
+            // Assign neighbors
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    Room currentRoom = roomGrid[i][j];
+
+                    // Check and assign neighbors (left, right, above, below)
+                    if (i > 0) {
+                        currentRoom.addNeighbor(roomGrid[i - 1][j]); // above
+                    }
+                    if (i < n - 1) {
+                        currentRoom.addNeighbor(roomGrid[i + 1][j]); // below
+                    }
+                    if (j > 0) {
+                        currentRoom.addNeighbor(roomGrid[i][j - 1]); // left
+                    }
+                    if (j < m - 1) {
+                        currentRoom.addNeighbor(roomGrid[i][j + 1]); // right
+                    }
+                }
+            }
+
+            // Add all the rooms to the Maze
+            this.rooms = newRooms;
+
+            return this;
+        }
+
+
+        public MazeBuilder createNFullyConnectedRooms(int n){
+
+            if(n <= 0){
+                throw new IllegalArgumentException("n must be greater than 0");
+            }
+
+            List<Room> newRooms = new ArrayList<>();
+
+            // Create all the rooms
+            for (int i = 0; i < n; i++) {
+                String roomName = "Room " + (i + 1);
+                Room room = new Room(roomName);
+                newRooms.add(room);
+            }
+
+            // Assign neighbors
+            for(Room room : newRooms){
+                for(Room otherRoom : newRooms){
+                    if(!otherRoom.equals(room)){
+                        room.addNeighbor(otherRoom);
+                    }
+                }
+            }
+
+            return this;
+        }
+
+        public MazeBuilder distributeRandomly(){
+            this.distributeRandomly = true;
+            return this;
+        }
+
+        public MazeBuilder distributeSequentially() {
+            this.distributeRandomly = false;
+            return this;
+        }
+
+        public MazeBuilder addRoom(String roomName) {
+            Room newRoom = new Room(roomName);
+
+            // If there's already a room in the list, set the last room as its neighbor
+            if (!this.rooms.isEmpty()) {
+                Room lastRoom = this.rooms.get(this.rooms.size() - 1);
+                newRoom.addNeighbor(lastRoom);
+                lastRoom.addNeighbor(newRoom);
+            }
+
+            // Add the new room to the list of rooms
+            this.rooms.add(newRoom);
+
+            return this;
+        }
+
+
+        public MazeBuilder placeObjectIntoRoom(Object object, Room room){
+            if(this.rooms.contains(room)){
+                if(object instanceof Character){
+                    room.add((Character) object);
+                    logger.info("placeObjectIntoRoom: Character placed into room");
+                } else if (object instanceof Food){
+                    room.add((Food) object);
+                    logger.info("placeObjectIntoRoom: Food placed into room");
+                } else {
+                    throw new IllegalArgumentException("object must be a Character or Food");
+                }
+            }else{
+                throw new IllegalArgumentException("Maze must contain room to place object");
+            }
+            return this;
+        }
+
+        public MazeBuilder createAndAddFoodItems(List<String> foodNames){
+            // TODO
+            return this;
+        }
+
+        // TODO - Arguments???
+        public MazeBuilder createAndAddAdventurers(List<String> adventurerNames){
+            // TODO
+            return this;
+        }
+
+        // TODO - Arguments???
+        public MazeBuilder createAndAddCreatures(List<String> creatureNames){
+            // TODO
+            return this;
+        }
+
+        // TODO - Random methods for food, adventurers, creatures
+
+        public Maze build(){
+            return new Maze(this);
+        }
+
     }
+
+
+
 
     public int size() {
         return rooms.size();
