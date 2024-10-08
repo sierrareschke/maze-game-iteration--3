@@ -14,7 +14,7 @@ import java.util.List;
 public class CharacterFactory {
     private final String[] creatureTypes = {"Ogre", "Troll", "Goblin", "Vampire", "Ghoul", "Ghost"};
 
-    public ArrayList<Character> createCharacter(int numKnights, int numCowards, int numGluttons, int numCreatures) {
+    public ArrayList<Character> createCharacters(int numKnights, int numCowards, int numGluttons, int numCreatures) {
         // Check for null and establish a default
         if (numKnights == -1) numKnights = 2;
         if (numCowards == -1) numCowards = 2;
@@ -34,6 +34,15 @@ public class CharacterFactory {
 
         return allCharacters;
     }
+
+    /*
+    * createAdventurers(int numKnights, int numCowards, int numGluttons, int numRegular)
+    *
+    * createAdventurers(int numAdventurers) // return specified num adventurers with rand types
+    *
+    * createCreatures(int numRegular, boolean isDemon) // returns number of regular creatures AND ONE DEMON?? add a check for demon??
+    *
+    * */
 
     public ArrayList<Character> createKnights(int numberOfKnights){
         // Check for null and establish a default
@@ -69,7 +78,8 @@ public class CharacterFactory {
         return new Demon("Demon");
     }
 
-    public ArrayList<Character> createCreatures(int numberOfCreatures){
+    // TODO - make static? AND account for isDemon
+    public ArrayList<Character> createCreatures(int numberOfCreatures, boolean isDemon){
         ArrayList<Character> creatures = new ArrayList<>();
         for (int i = 0; i < numberOfCreatures; i++) {
             int diceRoll = Die.rollSixSided();

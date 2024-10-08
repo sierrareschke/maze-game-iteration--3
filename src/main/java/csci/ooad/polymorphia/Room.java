@@ -5,9 +5,7 @@ import csci.ooad.polymorphia.characters.Creature;
 import csci.ooad.polymorphia.characters.Demon;
 import csci.ooad.polymorphia.characters.Character;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 
 public class Room {

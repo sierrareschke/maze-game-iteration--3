@@ -3,6 +3,8 @@ package csci.ooad.polymorphia;
 import csci.ooad.polymorphia.characters.Adventurer;
 import csci.ooad.polymorphia.characters.Character;
 import csci.ooad.polymorphia.characters.Creature;
+import csci.ooad.polymorphia.factories.FoodFactory;
+import csci.ooad.polymorphia.factories.CharacterFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -107,23 +109,23 @@ public class Maze  {
     private final boolean distributeRandomly; // 1 = rand, 0 = simultaneous distribution
 
 
-    public Maze(MazeBuilder builder) {
+    private Maze(MazeBuilder builder) {
         this.rooms = builder.rooms;
         this.distributeRandomly = builder.distributeRandomly;
     }
 
-
+    public static MazeBuilder newBuilder() {
+        return new MazeBuilder();
+    }
 
 
     public static class MazeBuilder {
         private List<Room> rooms;
         private boolean distributeRandomly;
+        private FoodFactory foodFactory;
+        private CharacterFactory characterFactory;
 
-        private MazeBuilder() {}
 
-        public static MazeBuilder newInstance() {
-            return new MazeBuilder();
-        }
 
         public MazeBuilder createNbyMGrid(int n, int m) {
 
@@ -287,10 +289,10 @@ public class Maze  {
             }
         }
 
-        public MazeBuilder createAndAddFoodItems(List<String> foodNames){
+        public MazeBuilder createAndAddFoodItems(int numFoods){
             // TODO
 
-            List<Food> foodsToAdd = new ArrayList<>();
+            List<Food> foodsToAdd = foodFactory.createListOfFood(numFoods);
             List<Object> foodsAsObjects = new ArrayList<>(foodsToAdd);
 
             if(distributeRandomly){
@@ -306,11 +308,30 @@ public class Maze  {
             return this;
         }
 
-        // TODO - Arguments???
-        public MazeBuilder createAndAddAdventurers(List<String> adventurerNames){
+        /*
+        * @param numAdventurers is the total num adventurers to be distributed to Maze rooms (type rand. determined by CharacterFactory)
+        * */
+        public MazeBuilder createAndAddAdventurers(int numAdventurers){
             // TODO
 
-            List<Food> adventurersToAdd = new ArrayList<>();
+            List<Adventurer> adventurersToAdd = CharacterFactory.createAdventurers(numAdventurers);
+            List<Object> adventurersAsObjects = new ArrayList<>(adventurersToAdd);
+
+            if(distributeRandomly){
+                // Randomly distribute items
+                distributeObjectsRandomly(adventurersAsObjects);
+            } else {
+                // Sequentially distribute items
+                distributeObjectsSequentially(adventurersAsObjects);
+            }
+
+            return this;
+        }
+
+        public MazeBuilder createAndAddAdventurers(int numKnights, int numCowards, int numGluttons, int numRegular){
+            // TODO
+
+            List<Adventurer> adventurersToAdd = CharacterFactory.createAdventurers(numKnights,numCowards,numGluttons,numRegular);
             List<Object> adventurersAsObjects = new ArrayList<>(adventurersToAdd);
 
             if(distributeRandomly){
@@ -325,10 +346,10 @@ public class Maze  {
         }
 
         // TODO - Arguments???
-        public MazeBuilder createAndAddCreatures(List<String> creatureNames){
+        public MazeBuilder createAndAddCreatures(int numCreatures, boolean isDemon){
             // TODO
 
-            List<Food> creaturesToAdd = new ArrayList<>();
+            List<Creature> creaturesToAdd = CharacterFactory.createCreatures(numCreatures,isDemon);
             List<Object> creaturesAsObjects = new ArrayList<>(creaturesToAdd);
 
             if(distributeRandomly){
@@ -405,5 +426,9 @@ public class Maze  {
 
     public void addToRandomRoom(Food foodItem) {
         getRandomRoom().add(foodItem);
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
     }
 }

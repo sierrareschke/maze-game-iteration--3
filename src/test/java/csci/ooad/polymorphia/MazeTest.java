@@ -4,8 +4,7 @@ import csci.ooad.polymorphia.characters.Adventurer;
 import csci.ooad.polymorphia.characters.Creature;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,34 +16,33 @@ class MazeTest {
 
     // NEW FROM HW 4
 
-//
-//    @Test
-//    void testSequentialDistribution() {
-//        Maze maze = Maze.newBuilder()
-//                .createNFullyConnectedRooms(4)
-//                .distributeSequentially()
-//                .createAndAddFoodItems("hot dog", "popcorn", "chili dog", "Coke")
-//                .build();
-//
-//        // Since we added four food items into a four-room maze, with sequential distribution, each room should have some food.
-//        for (Maze.Room room : maze.getRooms()) {
-//            assertTrue(room.hasFood());
-//        }
-//    }
-//
-//    @Test
-//    void testRandomDistribution() {
-//        Maze maze = Maze.newBuilder()
-//                .createNFullyConnectedRooms(10)
-//                .distributeRandomly()
-//                .createAndAddFoodItems("hot dog", "popcorn", "chili dog", "Coke",
-//                        "apple", "bread", "orange", "banana", "ham", "salad")
-//                .build();
-//
-//        // Since we added four food items into a four-room maze, with random distribution,
-//        // it's likely (not assured) that one room will not have any food in it.
-//        assertTrue(maze.getRooms().stream().anyMatch(room -> !room.hasFood()));
-//    }
+
+    @Test
+    void testSequentialDistribution() {
+        Maze maze = Maze.newBuilder()
+                .createNFullyConnectedRooms(4)
+                .distributeSequentially()
+                .createAndAddFoodItems(4)
+                .build();
+
+        // Since we added four food items into a four-room maze, with sequential distribution, each room should have some food.
+        for (Room room : maze.getRooms()) {
+            assertTrue(room.hasFood());
+        }
+    }
+
+    @Test
+    void testRandomDistribution() {
+        Maze maze = Maze.newBuilder()
+                .createNFullyConnectedRooms(10)
+                .distributeRandomly()
+                .createAndAddFoodItems(10)
+                .build();
+
+        // Since we added 8 food items into a ten-room maze, with random distribution,
+        // it's likely (not assured) that one room will not have any food in it.
+        assertTrue(maze.getRooms().stream().anyMatch(room -> !room.hasFood()));
+    }
 
     // DONE WITH NEW TESTS
 
