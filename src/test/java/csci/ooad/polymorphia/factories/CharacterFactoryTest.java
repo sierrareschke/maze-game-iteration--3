@@ -11,7 +11,7 @@ import java.util.List;
 public class CharacterFactoryTest {
 
     @BeforeEach
-    private void setUp(){
+    public void setUp(){
         String[][] THREE_X_THREE_ROOM_NAMES = new String[][]{
                 {"Northwest", "North", "Northeast"},
                 {"West", "Center", "East"},

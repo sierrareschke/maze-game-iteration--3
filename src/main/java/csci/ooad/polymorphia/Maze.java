@@ -33,8 +33,8 @@ public class Maze  {
     public static class MazeBuilder {
         private List<Room> rooms;
         private boolean distributeRandomly;
-        private FoodFactory foodFactory;
-        private CharacterFactory characterFactory;
+        private final FoodFactory foodFactory = new FoodFactory();
+        private final CharacterFactory characterFactory = new CharacterFactory();
 
 
 

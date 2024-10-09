@@ -10,7 +10,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CharacterFactory {
-    private final String[] creatureTypes = {"Ogre", "Troll", "Goblin", "Vampire", "Ghoul", "Ghost"};
+    private final String[] creatureTypes = {"Ogre", "Troll", "Goblin", "Vampire", "Ghoul", "Ghost", "Satanic Minion"};
 
     public ArrayList<Character> createAdventurers(int numKnights, int numCowards, int numGluttons, int numRegular) {
         // Check for null and establish a default

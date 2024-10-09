@@ -8,7 +8,7 @@ import csci.ooad.polymorphia.Food;
 import java.util.ArrayList;
 
 public class FoodFactory {
-    static String[] foods = {"Hamburger", "Salad", "French Fries", "Apple", "Pancake", "Vanilla Oatmilk Latte"};
+    static String[] foods = {"Hamburger", "Salad", "French Fries", "Apple", "Pancake", "Vanilla Oatmilk Latte", "Sandwich"};
     static int diceSides = 6;
 
     public ArrayList<Food> createListOfFood(int numberOfItems){
