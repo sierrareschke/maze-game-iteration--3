@@ -9,11 +9,11 @@ public class Die {
     public Die() {
     }
 
-    private Integer roll(Integer sides) {
+    private int roll(int sides) {
         return randomInt(sides) + 1;
     }
 
-    private Integer randomInt(Integer limit) {
+    private int randomInt(int limit) {
         return rand.nextInt(limit);
     }
 
@@ -24,15 +24,15 @@ public class Die {
         return singleton;
     }
 
-    public static Integer rollSixSided() {
+    public static int rollSixSided() {
         return rollNSided(6);
     }
 
-    public static Integer rollNSided(Integer sides) {
+    public static int rollNSided(int sides) {
         return getInstance().roll(sides);
     }
 
-    public static Integer randomLessThan(Integer limit) {
+    public static int randomLessThan(int limit) {
         return getInstance().randomInt(limit);
     }
 }

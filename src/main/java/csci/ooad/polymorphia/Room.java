@@ -72,14 +72,14 @@ public class Room {
         character.enterRoom(this);
     }
 
-    public Boolean hasLivingCreatures() {
+    public boolean hasLivingCreatures() {
         return characters.stream()
                 .filter(Character::isCreature)
                 .filter(Character::isAlive)
                 .anyMatch(Character::isAlive);
     }
 
-    public Boolean hasLivingAdventurers() {
+    public boolean hasLivingAdventurers() {
         return characters.stream()
                 .filter(Character::isAdventurer)
                 .filter(Character::isAlive)
@@ -92,7 +92,8 @@ public class Room {
 
     public Creature getRandomCreature() {
         List<Creature> creatures = getLivingCreatures();
-        return creatures.get(Die.randomLessThan(creatures.size()));
+        int numCreatures = creatures.size();
+        return creatures.get(Die.randomLessThan(numCreatures));
     }
 
     public Room getRandomNeighbor() {
@@ -142,5 +143,9 @@ public class Room {
             return null;
         }
         return foodItems.removeFirst();
+    }
+
+    public List<Room> getNeighbors() {
+        return neighbors;
     }
 }
