@@ -124,5 +124,92 @@ class CharacterTest {
     }
 
 
-    // TODO - add tests for Demon, Coward, Glutton, Knight
+    // TODO - add and check tests for Demon, Coward, Glutton, Knight (haven't ran yet)
+    @Test
+    void testKnightAlwaysFightsCreatures() {
+        Knight knight = new Knight("Sir Lancelot");
+        Creature ogre = new Creature("Ogre");
+        Room room = new Room("Battlefield");
+        room.add(knight);
+        room.add(ogre);
+
+        knight.doAction();
+
+        assertFalse(ogre.isAlive());
+        assertTrue(knight.isAlive());
+    }
+
+    @Test
+    void testCowardRunsFromCreature() {
+        Coward coward = new Coward("Tim the Coward");
+        Creature ogre = new Creature("Ogre");
+        Room room = new Room("Forest");
+        room.add(coward);
+        room.add(ogre);
+
+        coward.doAction();
+
+        assertEquals(4.5, coward.getHealth()); // Coward loses 0.5 health for running away
+        assertNotEquals(room, coward.getCurrentLocation()); // Coward should move to a new room
+    }
+
+    @Test
+    void testCowardCannotRunFromDemon() {
+        Coward coward = new Coward("Tim the Coward");
+        Demon demon = new Demon("Fierce Demon");
+        Room room = new Room("Dungeon");
+        room.add(coward);
+        room.add(demon);
+
+        coward.doAction();
+
+        assertTrue(demon.isAlive()); // Demon fights the Coward, but does not run
+        assertTrue(coward.getHealth() < Character.DEFAULT_INITIAL_HEALTH);
+    }
+
+    @Test
+    void testGluttonEatsWhenFoodIsAvailable() {
+        Glutton glutton = new Glutton("Hungry Hal");
+        Food apple = new Food("Apple");
+        Room room = new Room("Kitchen");
+        room.add(glutton);
+        room.add(apple);
+
+        glutton.doAction();
+
+        assertEquals(Character.DEFAULT_INITIAL_HEALTH + apple.getHealthValue(), glutton.getHealth());
+        assertFalse(room.hasFood()); // Glutton should have eaten the food
+    }
+
+    @Test
+    void testGluttonFightsDemonInsteadOfEating() {
+        Glutton glutton = new Glutton("Hungry Hal");
+        Demon demon = new Demon("Fierce Demon");
+        Food apple = new Food("Apple");
+        Room room = new Room("Battlefield");
+        room.add(glutton);
+        room.add(demon);
+        room.add(apple);
+
+        glutton.doAction();
+
+        assertTrue(demon.isAlive() && glutton.getHealth() < Character.DEFAULT_INITIAL_HEALTH); // Glutton must fight instead of eat
+        assertTrue(room.hasFood()); // Glutton didn’t eat the food
+    }
+
+    @Test
+    void testDemonFightsAllAdventurers() {
+        Demon demon = new Demon("Fierce Demon");
+        Adventurer adventurer1 = new Adventurer("Adventurer1", 10.0);
+        Adventurer adventurer2 = new Adventurer("Adventurer2", 12.0);
+        Room room = new Room("Arena");
+        room.add(demon);
+        room.add(adventurer1);
+        room.add(adventurer2);
+
+        demon.doAction();
+
+        assertFalse(adventurer1.isAlive());
+        assertFalse(adventurer2.isAlive());
+    }
 }

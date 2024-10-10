@@ -74,14 +74,18 @@ public class CharacterFactory {
         return cowards;
     }
 
-    public Character createDemons(){
+    public Character createDemon(){
         return new Demon("Demon");
     }
 
     // TODO - make static? AND account for isDemon
     public ArrayList<Character> createCreatures(int numberOfCreatures, boolean isDemon){
         ArrayList<Character> creatures = new ArrayList<>();
-        for (int i = 0; i < numberOfCreatures; i++) {
+        if (isDemon) {
+            creatures.add(createDemon());
+        }
+        // TODO - is demon included in the count of numberOfCreatures? i.e. should i go to numberOfCreatures-1 or numberOfCreatures
+        for (int i = 0; i < numberOfCreatures-1; i++) {
             int diceRoll = Die.rollSixSided();
             creatures.add(new Creature(this.creatureTypes[diceRoll]));
         }
