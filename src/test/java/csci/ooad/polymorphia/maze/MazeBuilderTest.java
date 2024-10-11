@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,17 +39,49 @@ class MazeBuilderTest {
 
     @Test
     void testDistributeRandomly() {
-        Maze randomMaze = builder.createNbyMGrid(2, 2).distributeRandomly().build();
-        assertNotNull(randomMaze);
-        assertEquals(4, randomMaze.size());
+        // Create a 3x3 grid with 10 adventurers distributed randomly
+        Maze randomMaze = builder.createNbyMGrid(3, 3).distributeRandomly().createAndAddAdventurers(10).build();
+        List<Room> rooms = randomMaze.getRooms();
+
+        // Get the count of adventurers in each room
+        List<Integer> adventurerCounts = rooms.stream()
+                .map(room -> room.getLivingAdventurers().size())
+                .collect(Collectors.toList());
+
+        // Calculate mean
+        double mean = adventurerCounts.stream().mapToInt(Integer::intValue).average().orElse(0);
+
+        // Calculate variance
+        double variance = adventurerCounts.stream()
+                .mapToDouble(count -> Math.pow(count - mean, 2))
+                .average()
+                .orElse(0);
+
+        // Calculate standard deviation
+        double stdDev = Math.sqrt(variance);
+
+        // Thresholds: Allow a relaxed range to account for natural variance in random distribution
+        assertTrue(stdDev > 0.5 && stdDev < 2.5, "Standard deviation should be within a reasonable range for a random distribution.");
+
+        // Ensure at least 5 rooms contain at least one adventurer to confirm adequate spread
+        long populatedRooms = adventurerCounts.stream().filter(count -> count > 0).count();
+        assertTrue(populatedRooms >= 5, "At least 5 rooms should contain adventurers to indicate random spread.");
+
     }
+
+
+
 
     @Test
     void testDistributeSequentially() {
-        Maze sequentialMaze = builder.createNbyMGrid(2, 2).distributeSequentially().build();
-        assertNotNull(sequentialMaze);
-        assertEquals(4, sequentialMaze.size());
+        Maze sequentialMaze = builder.createNbyMGrid(2, 2).distributeSequentially().createAndAddCreatures(4,false).build();
+        List<Room> rooms = sequentialMaze.getRooms();
+        for (int i = 0; i < rooms.size() - 1; i++) {
+            assertTrue(rooms.get(i).getLivingCreatures().size() >= rooms.get(i + 1).getLivingCreatures().size(),
+                    "Rooms should receive creatures in sequence without skipping.");
+        }
     }
+
 
     @Test
     void testAddRoomAndConnect() {
