@@ -17,8 +17,6 @@ public class CharacterFactoryTest {
                 {"West", "Center", "East"},
                 {"Southwest", "South", "Southeast"}
         };
-
-
     }
 
     @Test
