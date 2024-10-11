@@ -10,9 +10,15 @@
     Java Version: 21
     Comments/Assumptions:
 
-
-    // For the coward, the order of action is fight Demon, flee from Creature, eat, move (if no creatures/demons present)
+    // Coward: order of action is fight Demon, flee from Creature, eat, move (if no creatures/demons present)
     //      i.e. the coward will flee before eating if there is a Creature present
+
+    // Adventurer will fight even if Knight is in room (since Adventurer has higher health)
+
+    // Adventurer will only fight the Demon even if a Demon and a creature are Present
+
+    // Glutton will continue eating food while food is present in the room
+
 
 You will submit this assignment via a link to your GIT repository. If you are re-using a repository from
 a previous homework, create a branch called "Homework_4" and commit all changes

@@ -154,7 +154,6 @@ class CharacterTest {
     }
 
 
-    // TODO - add and check tests for Demon, Coward, Glutton, Knight
     @Test
     void testKnightAlwaysFightsCreatures() {
         Knight knight = new Knight("Knight Minion");
@@ -206,7 +205,7 @@ class CharacterTest {
         Creature ogre = new Creature("Ogre");
         Demon demon = new Demon("Satan");
         Room room1 = new Room("Flatirons");
-        Room room2 = new Room("Trail");
+        Room room2 = new Room("Green Mountain");
         room1.addNeighbor(room2);
 
         room1.add(coward);
@@ -261,7 +260,7 @@ class CharacterTest {
 
     @Test
     void testGluttonEatsWhenMultipleFoodIsAvailable() {
-        Glutton glutton = new Glutton("TestGlutton");
+        Glutton glutton = new Glutton("Glutton Minion");
         Food apple = new Food("Apple");
         Food cake = new Food("Cake");
 
@@ -322,4 +321,64 @@ class CharacterTest {
         assertTrue(adventurer1.getHealth() < 10.0);
         assertTrue(adventurer2.getHealth() < 12.0);
     }
+
+    // Adventurer will still fight Creature even if Knight is present
+    @Test
+    void testAdventurerKnightAndCreature() {
+        Adventurer adventurer = new Adventurer("Brave Adventurer", 9.0); // higher health than Knight
+        Knight knight = new Knight("Valiant Knight"); // DEFAULT_HEALTH = 8.0
+        Creature creature = new Creature("Vicious Creature", 5.0);
+
+        Room room1 = new Room("Flatirons");
+        Room room2 = new Room("Trail");
+        room1.addNeighbor(room2);
+
+        room1.add(adventurer);
+        room1.add(knight);
+        room1.add(creature);
+
+        // Check initial health values
+        assertEquals(9.0, adventurer.getHealth());
+        assertEquals(8.0, knight.getHealth());
+        assertEquals(5.0, creature.getHealth());
+
+        adventurer.doAction();  // Adventurer will fight even if Knight is in room and Adventurer has higher health
+        assertTrue(adventurer.getHealth() < 9.0);
+
+        knight.doAction();      // Knight will always fight creatures
+        creature.doAction();    // Creature action (if applicable)
+
+        // Assert results after actions
+        assertTrue(adventurer.getHealth() < 7.0 || knight.getHealth() < 3.0 || creature.getHealth() < 5.0,
+                "At least one of the characters should have lost health after the fight.");
+    }
+
+
+    // Adventurer will only fight the Demon even if a Demon and a creature are Present
+    @Test
+    void testAdventurerCreatureAndDemon() {
+        Adventurer adventurer = new Adventurer("Adventuring Minion", 7.0);
+        Creature creature = new Creature("Creature Minion", 8.0);
+        Demon demon = new Demon("Satan");
+        Room room = new Room("Dark Dungeon");
+
+        room.add(adventurer);
+        room.add(creature);
+        room.add(demon);
+
+        // Check initial health values
+        assertEquals(7.0, adventurer.getHealth());
+        assertEquals(8.0, creature.getHealth());
+
+        // Perform actions
+        adventurer.doAction();  // Adventurer may fight or act based on their logic
+        creature.doAction();    // Creature may fight or act
+        demon.doAction();       // Demon fights all adventurers
+
+        // Assert results after actions
+        assertTrue(adventurer.getHealth() < 7.0, "Adventurer should have lost health after the fight.");
+        assertEquals(creature.getHealth(), 8.0, "Creature should not have lost health (did not fight).");
+        assertTrue(demon.getHealth() < 15.0, "Demon should have lost health after fighting.");
+    }
+
 }

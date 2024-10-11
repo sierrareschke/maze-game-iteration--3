@@ -9,9 +9,8 @@ public class Coward extends Adventurer{
     }
 
 
-    // TODO - does coward eat if there is a non-demon creature present (before fleeing)?
-
     // always runs from a creature, if it can (it can’t run from Demons)
+    // Coward doesn't eat if there is a non-demon creature present (before fleeing)
     @Override
     public void doAction() {
         if (shouldFight()) { // fights if demon in room

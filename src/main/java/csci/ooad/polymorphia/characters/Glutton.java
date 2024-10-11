@@ -8,9 +8,7 @@ public class Glutton extends Adventurer {
         super(name, GLUTTON_INITIAL_HEALTH);
     }
 
-    // TODO - does glutton keep eating until no more food or just eats once ?
-
-    // always eats if food is available unless a Demon is in the room, then it must fight
+    // always eats while food is available unless a Demon is in the room, then it must fight
     @Override
     public void doAction() {
         if (shouldFight()) { // fights if Demon in room

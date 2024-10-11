@@ -127,7 +127,6 @@ public class Maze  {
             return this;
         }
 
-        // TODO
         public MazeBuilder addRoom(Room roomToAdd) {
             if (this.rooms == null) this.rooms = new ArrayList<>();
             // If there's already a room in the list, set the last room as its neighbor
@@ -206,7 +205,6 @@ public class Maze  {
         }
 
         public MazeBuilder createAndAddFoodItems(int numFoods){
-            // TODO
 
             List<Food> foodsToAdd = foodFactory.createListOfFood(numFoods);
             List<Object> foodsAsObjects = new ArrayList<>(foodsToAdd);
@@ -293,9 +291,7 @@ public class Maze  {
             return this;
         }
 
-        // TODO - Arguments???
         public MazeBuilder createAndAddCreatures(int numCreatures, boolean isDemon){
-            // TODO
 
             ArrayList<Character> creaturesToAdd = characterFactory.createCreatures(numCreatures,isDemon);
             List<Object> creaturesAsObjects = new ArrayList<>(creaturesToAdd);
@@ -329,8 +325,6 @@ public class Maze  {
 
             return this;
         }
-
-        // TODO - Random methods for food, adventurers, creatures
 
         public Maze build(){
             return new Maze(this);

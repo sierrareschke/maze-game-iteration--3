@@ -29,12 +29,14 @@ public class Adventurer extends Character {
         super.enterRoom(room);
     }
 
-    // TODO: case with Adventurer (health:8), Knight (health:3) and regular creature --> piazza
-    // TODO: case with Adventurer, Creature (health:8), and Demon (health:2) --> piazza
-    // TODO --> explain choice in README
     public void doAction() {
         if (shouldFight()) {
-            fight(getCurrentLocation().getRandomCreature());
+            if (demonInRoomWithMe()) {
+                fight(getCurrentLocation().getHealthiestDemon());
+            }
+            else {
+                fight(getCurrentLocation().getRandomCreature());
+            }
         } else if (getCurrentLocation().hasFood()) {
             eatFood();
         } else {
@@ -59,7 +61,6 @@ public class Adventurer extends Character {
         return getCurrentLocation().hasLivingCreatures();
     }
 
-    // TODO write test
     Boolean demonInRoomWithMe() {
         boolean demonPresent = false;
         List<Creature> creaturesPresent = getCurrentLocation().getLivingCreatures();
