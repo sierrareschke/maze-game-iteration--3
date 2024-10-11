@@ -86,12 +86,15 @@ public class CharacterFactory {
     }
 
     // TODO - make static? AND account for isDemon
-    public ArrayList<Character> createCreatures(int numberOfCreatures, boolean isDemon){
+    public ArrayList<Character> createCreatures(int numberOfCreatures, boolean includeDemon){
         ArrayList<Character> creatures = new ArrayList<>();
+
         for (int i = 0; i < numberOfCreatures; i++) {
             int diceRoll = Die.rollSixSided();
             creatures.add(new Creature(this.creatureTypes[diceRoll]));
         }
+        if (includeDemon) creatures.add(createDemons());
+
         return creatures;
     }
 
