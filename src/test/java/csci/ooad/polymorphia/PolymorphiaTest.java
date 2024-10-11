@@ -76,9 +76,6 @@ public class PolymorphiaTest {
                 .createAndAddCreatures(new Creature("Ogre"), true)
                 .build();
 
-        // Arrange
-        maze.addToRandomRoom(new Creature("Ogre"));
-
         Polymorphia game = new Polymorphia(maze);
 
         // Act

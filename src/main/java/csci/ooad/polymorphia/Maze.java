@@ -258,7 +258,8 @@ public class Maze  {
             }
 
             // Call the non-static method using the characterFactory instance
-            List<Object> adventurersAsObjects = new ArrayList<>((Collection) adventurer);
+            List<Object> adventurersAsObjects = new ArrayList<>();
+            adventurersAsObjects.add(adventurer);
 
             if (distributeRandomly) {
                 // Randomly distribute items
