@@ -6,8 +6,8 @@
     NOTE: Expect some minor edits/updates
 
 ## Introduction
-    Team Members:
-    Java Version:
+    Team Members: Grace Ohlsen, Nolan Brady, Sierra Reschke
+    Java Version: 21
     Comments/Assumptions:
 
 You will submit this assignment via a link to your GIT repository. If you are re-using a repository from

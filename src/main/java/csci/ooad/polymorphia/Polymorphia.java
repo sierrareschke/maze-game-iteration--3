@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 
 public class Polymorphia {
@@ -27,7 +28,7 @@ public class Polymorphia {
     // Game is over when all creatures are killed
     // or all adventurers are killed
     public Boolean isOver() {
-        return !hasLivingCreatures() || !hasLivingAdventurers();
+        return !hasLivingAdventurers() || !hasLivingCreatures();
     }
 
     public Boolean hasLivingCreatures() {
@@ -50,6 +51,9 @@ public class Polymorphia {
             int index = rand.nextInt(characters.size());
             characters.get(index).doAction();
             characters.remove(index);
+            characters = characters.stream()
+                    .filter(Character::isAlive)
+                    .collect(Collectors.toList());
         }
     }
 

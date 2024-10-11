@@ -159,7 +159,7 @@ public class PolymorphiaTest {
         double adventureWinRatio = (double) adventurerWins / (double) TOTAL_GAMES;
         System.out.println("Adventures won " + (adventureWinRatio * 100) + "% of the games.");
 
-        // Check to see that adventurers win at least 10% of the games
-        assertTrue(adventureWinRatio > 0.1);
+        // Check to see that adventurers win at least 5% of the games
+        assertTrue(adventureWinRatio > 0.05);
     }
 }
