@@ -89,11 +89,14 @@ public class CharacterFactory {
     public ArrayList<Character> createCreatures(int numberOfCreatures, boolean includeDemon){
         ArrayList<Character> creatures = new ArrayList<>();
 
+        if (includeDemon){
+            numberOfCreatures --;
+        }
         for (int i = 0; i < numberOfCreatures; i++) {
             int diceRoll = Die.rollSixSided();
             creatures.add(new Creature(this.creatureTypes[diceRoll]));
         }
-        if (includeDemon) creatures.add(createDemons());
+        if (includeDemon) creatures.add(createDemon());
 
         return creatures;
     }

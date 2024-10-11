@@ -39,7 +39,7 @@ class CharacterTest {
         List<Character> characters = new ArrayList<>(Arrays.asList(
                 new Adventurer("Bill", mostHealth),
                 new Creature("Ogre", mediumHealth),
-                new Adventurer("Sheri", leastHealth)));
+                new Adventurer("Scrambler", leastHealth)));
 
         Collections.sort(characters);
 
@@ -95,7 +95,7 @@ class CharacterTest {
     @Test
     void testEatingFood() {
         Room room = new Room("room");
-        Adventurer adventurer = new Adventurer("Adventurer");
+        Adventurer adventurer = new Adventurer("Minion");
         room.add(adventurer);
         Food popcorn = new Food("popcorn");
         room.add(popcorn);
@@ -108,8 +108,8 @@ class CharacterTest {
 
     @Test
     void testFighting() {
-        Adventurer adventurer = new Adventurer("Adventurer");
-        Creature creature = new Creature("Creature");
+        Adventurer adventurer = new Adventurer("Minion");
+        Creature creature = new Creature("Satan");
 
         double initialHealth = adventurer.getHealth();
         adventurer.fight(creature);
@@ -119,44 +119,85 @@ class CharacterTest {
 
     @Test
     void testCreatureDoesNotDoAction() {
-        Creature creature = new Creature("Creature");
+        Creature creature = new Creature("Minion");
         creature.doAction();
     }
 
 
-    // TODO - add and check tests for Demon, Coward, Glutton, Knight (haven't ran yet)
+    // TODO - add and check tests for Demon, Coward, Glutton, Knight
     @Test
     void testKnightAlwaysFightsCreatures() {
-        Knight knight = new Knight("Sir Lancelot");
+        Knight knight = new Knight("Knight Minion");
+        Adventurer testAdventurer = new Adventurer("Adventurer Minion");
+
         Creature ogre = new Creature("Ogre");
         Room room = new Room("Battlefield");
         room.add(knight);
         room.add(ogre);
 
-        knight.doAction();
+        knight.loseHealth(4.0);
 
-        assertFalse(ogre.isAlive());
-        assertTrue(knight.isAlive());
+        // check (updated) health values are correct
+        assertEquals(4.0, knight.getHealth());
+        assertEquals(5.0, testAdventurer.getHealth());
+        assertEquals(3.0, ogre.getHealth());
+
+        knight.doAction(); // knight should fight ogre, even if not healthiest in room
+
+        // both characters should lose health from fighting regardless of outcome
+        assertTrue(ogre.getHealth() < 3.0);
+        assertTrue(knight.getHealth() < 4.0);
     }
 
     @Test
     void testCowardRunsFromCreature() {
         Coward coward = new Coward("Tim the Coward");
         Creature ogre = new Creature("Ogre");
-        Room room = new Room("Forest");
-        room.add(coward);
-        room.add(ogre);
+        Room room1 = new Room("Forest");
+        Room room2 = new Room("Cliff");
+        room1.addNeighbor(room2);
 
-        coward.doAction();
+        room1.add(coward);
+        room1.add(ogre);
+
+        // check (updated) health values are correct
+        assertEquals(5.0, coward.getHealth());
+        assertEquals(3.0, ogre.getHealth());
+
+        coward.doAction(); // coward should run
 
         assertEquals(4.5, coward.getHealth()); // Coward loses 0.5 health for running away
-        assertNotEquals(room, coward.getCurrentLocation()); // Coward should move to a new room
+        assertNotEquals(room1, coward.getCurrentLocation()); // Coward should move to a new room
     }
+
+    @Test
+    void testCowardFightsDemon() {
+        Coward coward = new Coward("Bill the Coward");
+        Creature ogre = new Creature("Ogre");
+        Demon demon = new Demon("Satan");
+        Room room1 = new Room("Flatirons");
+        Room room2 = new Room("Trail");
+        room1.addNeighbor(room2);
+
+        room1.add(coward);
+        room1.add(ogre);
+        room1.add(demon);
+
+        // check (updated) health values are correct
+        assertEquals(5.0, coward.getHealth());
+        assertEquals(3.0, ogre.getHealth());
+
+        coward.doAction(); // Coward should fight Demon
+
+        assertTrue(coward.getHealth() < 5.0); // Coward loses health from fighting
+        assertEquals(room1, coward.getCurrentLocation()); // Coward should not move to a new room
+    }
+
 
     @Test
     void testCowardCannotRunFromDemon() {
         Coward coward = new Coward("Tim the Coward");
-        Demon demon = new Demon("Fierce Demon");
+        Demon demon = new Demon("Satan");
         Room room = new Room("Dungeon");
         room.add(coward);
         room.add(demon);
@@ -168,25 +209,58 @@ class CharacterTest {
     }
 
     @Test
-    void testGluttonEatsWhenFoodIsAvailable() {
-        Glutton glutton = new Glutton("Hungry Hal");
+    void testGluttonEatsWhenOneFoodIsAvailable() {
+        Glutton glutton = new Glutton("Glutton Minion");
         Food apple = new Food("Apple");
         Room room = new Room("Kitchen");
         room.add(glutton);
         room.add(apple);
 
-        glutton.doAction();
+        double initialGluttonHealth = glutton.getHealth();
 
-        assertEquals(Character.DEFAULT_INITIAL_HEALTH + apple.getHealthValue(), glutton.getHealth());
+        // check initial health values are correct
+        assertEquals(3.0, initialGluttonHealth);
+        assertEquals(1.0, apple.getHealthValue());
+
+        glutton.doAction(); // glutton should eat one food item
+
+        // Glutton should eat single food item present
+        assertEquals(initialGluttonHealth + apple.getHealthValue(), glutton.getHealth());
         assertFalse(room.hasFood()); // Glutton should have eaten the food
     }
 
     @Test
+    void testGluttonEatsWhenMultipleFoodIsAvailable() {
+        Glutton glutton = new Glutton("TestGlutton");
+        Food apple = new Food("Apple");
+        Food cake = new Food("Cake");
+
+        Room room = new Room("Kitchen");
+        room.add(glutton);
+        room.add(apple);
+        room.add(cake);
+
+        double initialGluttonHealth = glutton.getHealth();
+
+        // check initial health values are correct
+        assertEquals(3.0, initialGluttonHealth);
+        assertEquals(1.0, apple.getHealthValue());
+        assertEquals(1.0, cake.getHealthValue());
+
+        glutton.doAction(); // glutton should eat all food items
+
+        // Glutton should eat all food items present
+        assertEquals(initialGluttonHealth + apple.getHealthValue() + cake.getHealthValue(), glutton.getHealth());
+        assertFalse(room.hasFood()); // Glutton should have eaten all food
+    }
+
+    @Test
     void testGluttonFightsDemonInsteadOfEating() {
-        Glutton glutton = new Glutton("Hungry Hal");
-        Demon demon = new Demon("Fierce Demon");
+        Glutton glutton = new Glutton("Hungry Minion");
+        Demon demon = new Demon("Satan");
         Food apple = new Food("Apple");
         Room room = new Room("Battlefield");
+
         room.add(glutton);
         room.add(demon);
         room.add(apple);
@@ -199,17 +273,23 @@ class CharacterTest {
 
     @Test
     void testDemonFightsAllAdventurers() {
-        Demon demon = new Demon("Fierce Demon");
-        Adventurer adventurer1 = new Adventurer("Adventurer1", 10.0);
-        Adventurer adventurer2 = new Adventurer("Adventurer2", 12.0);
-        Room room = new Room("Arena");
+        Demon demon = new Demon("Satan");
+        Adventurer adventurer1 = new Adventurer("Minion Extraordinaire", 10.0);
+        Adventurer adventurer2 = new Adventurer("Imperial Grand Minion", 12.0);
+        Room room = new Room("Satan's Lair");
+
         room.add(demon);
         room.add(adventurer1);
         room.add(adventurer2);
 
+        // check initial health values are correct
+        assertEquals(10.0, adventurer1.getHealth());
+        assertEquals(12.0, adventurer2.getHealth());
+        assertEquals(15.0, demon.getHealth());
+
         demon.doAction();
 
-        assertFalse(adventurer1.isAlive());
-        assertFalse(adventurer2.isAlive());
+        assertTrue(adventurer1.getHealth() < 10.0);
+        assertTrue(adventurer2.getHealth() < 12.0);
     }
 }

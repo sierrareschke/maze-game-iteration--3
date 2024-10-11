@@ -27,7 +27,7 @@ public class Coward extends Adventurer{
 
     private void runAway() {
         move();
-        loseHealth(0.5);  // Loses 0.5 points when running
+        loseHealth(0.25);  // Loses 0.25 points extra points (0.25+0.25=0.5) when fleeing
     }
 
     @Override

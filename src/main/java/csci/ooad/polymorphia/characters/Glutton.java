@@ -16,7 +16,9 @@ public class Glutton extends Adventurer {
         if (shouldFight()) { // fights if Demon in room
             fight(getCurrentLocation().getHealthiestDemon());
         } else if (getCurrentLocation().hasFood()) {
-            eatFood();
+            while(getCurrentLocation().hasFood()) {
+                eatFood();
+            }
         } else {
             move();
         }
