@@ -5,10 +5,11 @@
 
     NOTE: Expect some minor edits/updates
 
-## Introduction
+## Project Report
+### Introduction
     Team Members: Grace Ohlsen, Nolan Brady, Sierra Reschke
     Java Version: 21
-    Comments/Assumptions:
+### Comments/Assumptions:
 
     // Coward: order of action is fight Demon, flee from Creature, eat, move (if no creatures/demons present)
     //      i.e. the coward will flee before eating if there is a Creature present
@@ -18,6 +19,15 @@
     // Adventurer will only fight the Demon even if a Demon and a creature are Present
 
     // Glutton will continue eating food while food is present in the room
+
+### UML Diagram
+![](./uml_diagram.png)
+
+### Game play files
+The game files can be found in the main directory. They are named `./polymorphia_game_play_1.log`, `./polymorphia_game_play_2.log` and `./polymorphia_game_play_3.log`.
+
+### Test Coverage
+![](./hw_4_test_coverage.png)
 
 
 You will submit this assignment via a link to your GIT repository. If you are re-using a repository from
