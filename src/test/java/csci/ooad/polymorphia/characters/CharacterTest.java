@@ -123,6 +123,36 @@ class CharacterTest {
         creature.doAction();
     }
 
+    @Test
+    void testHealthiestInRoom() {
+        Room testRoom;
+        Adventurer healthiestAdventurer;
+        Adventurer weakerAdventurer1;
+        Adventurer weakerAdventurer2;
+
+        // Initialize a room
+        testRoom = new Room("Test Room");
+
+        // Create adventurers with different health levels
+        healthiestAdventurer = new Adventurer("Healthiest", 10.0);  // Highest health
+        weakerAdventurer1 = new Adventurer("Weaker1", 5.0);  // Lower health
+        weakerAdventurer2 = new Adventurer("Weaker2", 7.0);  // Lower health
+
+        // Place all adventurers in the room
+        testRoom.add(healthiestAdventurer);
+        testRoom.add(weakerAdventurer1);
+        testRoom.add(weakerAdventurer2);
+
+        // Test the healthiest adventurer
+        assertTrue(healthiestAdventurer.iAmHealthiestInRoom(),
+                "Healthiest adventurer should be recognized as the healthiest.");
+        // Test the weaker adventurers
+        assertFalse(weakerAdventurer1.iAmHealthiestInRoom(),
+                "Weaker adventurer should not be recognized as the healthiest.");
+        assertFalse(weakerAdventurer2.iAmHealthiestInRoom(),
+                "Weaker adventurer should not be recognized as the healthiest.");
+    }
+
 
     // TODO - add and check tests for Demon, Coward, Glutton, Knight
     @Test

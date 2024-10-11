@@ -51,7 +51,7 @@ public class Adventurer extends Character {
         return creatureInRoomWithMe() && iAmHealthiestInRoom();
     }
 
-    private boolean iAmHealthiestInRoom() {
+    public boolean iAmHealthiestInRoom() {
         return this.equals(getCurrentLocation().getHealthiestAdventurer());
     }
 

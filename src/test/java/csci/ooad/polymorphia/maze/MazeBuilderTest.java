@@ -54,8 +54,8 @@ class MazeBuilderTest {
     void testAddRoomAndConnect() {
         Room room1 = new Room("Room 1");
         Room room2 = new Room("Room 2");
-        builder.addRoom(room1.getName())
-                .addRoom(room2.getName())
+        builder.addRoom(room1)
+                .addRoom(room2)
                 .build();
         room1.connect(room2);
 
@@ -67,7 +67,7 @@ class MazeBuilderTest {
     void testPlaceAdventurerIntoRoom() {
         Room targetRoom = new Room("Target Room");
         Adventurer adventurer = new Adventurer("Brave Adventurer");
-        builder.addRoom(targetRoom.getName()).placeObjectIntoRoom(adventurer, targetRoom).build();
+        builder.addRoom(targetRoom).placeObjectIntoRoom(adventurer, targetRoom).build();
 
         assertTrue(targetRoom.getLivingAdventurers().contains(adventurer));
     }
@@ -76,7 +76,7 @@ class MazeBuilderTest {
     void testPlaceCreatureIntoRoom() {
         Room targetRoom = new Room("Target Room");
         Creature creature = new Creature("Wild Creature");
-        builder.addRoom(targetRoom.getName())
+        builder.addRoom(targetRoom)
                 .placeObjectIntoRoom(creature, targetRoom)
                 .build();
 
@@ -87,7 +87,7 @@ class MazeBuilderTest {
     void testPlaceFoodIntoRoom() {
         Room targetRoom = new Room("Target Room");
         Food food = new Food("Bread");
-        builder.addRoom(targetRoom.getName())
+        builder.addRoom(targetRoom)
                 .placeObjectIntoRoom(food, targetRoom)
                 .build();
 

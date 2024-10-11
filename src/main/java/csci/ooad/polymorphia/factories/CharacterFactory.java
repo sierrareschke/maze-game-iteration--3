@@ -100,12 +100,4 @@ public class CharacterFactory {
 
         return creatures;
     }
-
-    private String capitalizeFirstCharacter(String name) {
-        if (name == null || name.isEmpty()) {
-            return name;
-        }
-        // Capitalize the first character and concatenate with the rest of the string
-        return name.substring(0, 1).toUpperCase() + name.substring(1);
-    }
 }

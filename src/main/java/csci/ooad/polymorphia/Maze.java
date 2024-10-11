@@ -110,6 +110,9 @@ public class Maze  {
                 }
             }
 
+            // Add all the rooms to the Maze
+            this.rooms = newRooms;
+
             return this;
         }
 
@@ -123,18 +126,18 @@ public class Maze  {
             return this;
         }
 
-        public MazeBuilder addRoom(String roomName) {
-            Room newRoom = new Room(roomName);
+        // TODO
+        public MazeBuilder addRoom(Room roomToAdd) {
             if (this.rooms == null) this.rooms = new ArrayList<>();
             // If there's already a room in the list, set the last room as its neighbor
             boolean noRooms = this.rooms.isEmpty();
             if(noRooms){
-                this.rooms.add(newRoom);
+                this.rooms.add(roomToAdd);
             }
             else {
                 Room lastRoom = this.rooms.getLast();
-                newRoom.addNeighbor(lastRoom);
-                lastRoom.addNeighbor(newRoom);
+                roomToAdd.addNeighbor(lastRoom);
+                lastRoom.addNeighbor(roomToAdd);
             }
 
             return this;
