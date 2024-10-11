@@ -15,7 +15,6 @@ public class Demon extends Creature {
     @Override
     public void enterRoom(Room room) {
         super.enterRoom(room);
-        //fightAllAdventurers();
     }
 
     private void fightAllAdventurers() {
