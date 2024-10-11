@@ -33,8 +33,8 @@ public class Maze  {
     public static class MazeBuilder {
         private List<Room> rooms;
         private boolean distributeRandomly;
-        private FoodFactory foodFactory;
-        private CharacterFactory characterFactory;
+        private final FoodFactory foodFactory = new FoodFactory();
+        private final CharacterFactory characterFactory = new CharacterFactory();
 
 
 
@@ -125,16 +125,17 @@ public class Maze  {
 
         public MazeBuilder addRoom(String roomName) {
             Room newRoom = new Room(roomName);
-
+            if (this.rooms == null) this.rooms = new ArrayList<>();
             // If there's already a room in the list, set the last room as its neighbor
-            if (!this.rooms.isEmpty()) {
-                Room lastRoom = this.rooms.get(this.rooms.size() - 1);
+            boolean noRooms = this.rooms.isEmpty();
+            if(noRooms){
+                this.rooms.add(newRoom);
+            }
+            else {
+                Room lastRoom = this.rooms.getLast();
                 newRoom.addNeighbor(lastRoom);
                 lastRoom.addNeighbor(newRoom);
             }
-
-            // Add the new room to the list of rooms
-            this.rooms.add(newRoom);
 
             return this;
         }
@@ -222,13 +223,17 @@ public class Maze  {
         /*
         * @param numAdventurers is the total num adventurers to be distributed to Maze rooms (type rand. determined by CharacterFactory)
         * */
-        public MazeBuilder createAndAddAdventurers(int numAdventurers){
-            // TODO
+        public MazeBuilder createAndAddAdventurers(int numAdventurers) {
+            // Ensure the characterFactory is not null
+            if (characterFactory == null) {
+                throw new IllegalStateException("CharacterFactory must be initialized before creating adventurers.");
+            }
 
-            List<Adventurer> adventurersToAdd = CharacterFactory.createAdventurers(numAdventurers);
+            // Call the non-static method using the characterFactory instance
+            ArrayList<Character> adventurersToAdd = characterFactory.createAdventurers(numAdventurers);
             List<Object> adventurersAsObjects = new ArrayList<>(adventurersToAdd);
 
-            if(distributeRandomly){
+            if (distributeRandomly) {
                 // Randomly distribute items
                 distributeObjectsRandomly(adventurersAsObjects);
             } else {
@@ -239,13 +244,17 @@ public class Maze  {
             return this;
         }
 
-        public MazeBuilder createAndAddAdventurers(int numKnights, int numCowards, int numGluttons, int numRegular){
-            // TODO
+        public MazeBuilder createAndAddAdventurers(int numKnights, int numCowards, int numGluttons, int numRegular) {
+            // Ensure the characterFactory is not null
+            if (characterFactory == null) {
+                throw new IllegalStateException("CharacterFactory must be initialized before creating adventurers.");
+            }
 
-            List<Adventurer> adventurersToAdd = CharacterFactory.createAdventurers(numKnights,numCowards,numGluttons,numRegular);
+            // Call the non-static method using the characterFactory instance
+            ArrayList<Character> adventurersToAdd = characterFactory.createAdventurers(numKnights, numCowards, numGluttons, numRegular);
             List<Object> adventurersAsObjects = new ArrayList<>(adventurersToAdd);
 
-            if(distributeRandomly){
+            if (distributeRandomly) {
                 // Randomly distribute items
                 distributeObjectsRandomly(adventurersAsObjects);
             } else {
@@ -260,7 +269,7 @@ public class Maze  {
         public MazeBuilder createAndAddCreatures(int numCreatures, boolean isDemon){
             // TODO
 
-            List<Creature> creaturesToAdd = CharacterFactory.createCreatures(numCreatures,isDemon);
+            ArrayList<Character> creaturesToAdd = characterFactory.createCreatures(numCreatures,isDemon);
             List<Object> creaturesAsObjects = new ArrayList<>(creaturesToAdd);
 
             if(distributeRandomly){
