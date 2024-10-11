@@ -3,6 +3,7 @@ package csci.ooad.polymorphia;
 import csci.ooad.polymorphia.characters.Adventurer;
 import csci.ooad.polymorphia.characters.Character;
 import csci.ooad.polymorphia.characters.Creature;
+import csci.ooad.polymorphia.characters.Demon;
 import csci.ooad.polymorphia.factories.FoodFactory;
 import csci.ooad.polymorphia.factories.CharacterFactory;
 import org.slf4j.Logger;
@@ -247,6 +248,30 @@ public class Maze  {
             return this;
         }
 
+        /*
+         * @param adventure is an instance of an adventurer that is then passed into a list.
+         * */
+        public MazeBuilder createAndAddAdventurers(Adventurer adventurer) {
+            // Ensure the characterFactory is not null
+            if (characterFactory == null) {
+                throw new IllegalStateException("CharacterFactory must be initialized before creating adventurers.");
+            }
+
+            // Call the non-static method using the characterFactory instance
+            List<Object> adventurersAsObjects = new ArrayList<>();
+            adventurersAsObjects.add(adventurer);
+
+            if (distributeRandomly) {
+                // Randomly distribute items
+                distributeObjectsRandomly(adventurersAsObjects);
+            } else {
+                // Sequentially distribute items
+                distributeObjectsSequentially(adventurersAsObjects);
+            }
+
+            return this;
+        }
+
         public MazeBuilder createAndAddAdventurers(int numKnights, int numCowards, int numGluttons, int numRegular) {
             // Ensure the characterFactory is not null
             if (characterFactory == null) {
@@ -283,6 +308,23 @@ public class Maze  {
             } else {
                 // Sequentially distribute items
                 distributeObjectsSequentially(creaturesAsObjects);
+            }
+
+            return this;
+        }
+
+        public MazeBuilder createAndAddCreatures(Creature creature, boolean includeDemon){
+
+            ArrayList<Object> creaturesToAdd = new ArrayList<>();
+            creaturesToAdd.add(creature);
+            if (includeDemon) creaturesToAdd.add(new Demon("Demon"));
+
+            if(distributeRandomly){
+                // Randomly distribute items
+                distributeObjectsRandomly(creaturesToAdd);
+            } else {
+                // Sequentially distribute items
+                distributeObjectsSequentially(creaturesToAdd);
             }
 
             return this;
