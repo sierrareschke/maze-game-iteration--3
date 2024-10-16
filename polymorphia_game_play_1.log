@@ -1,0 +1,522 @@
+Polymorphia MAZE: turn 0
+	Room 1:
+		Glutton_01(health: 5.0)
+		Vampire(health: 3.0)
+		Salad(1)
+		Sandwich(1)
+
+	Room 2:
+		Glutton_11(health: 5.0)
+		Vampire(health: 3.0)
+		Vanilla Oatmilk Latte(1)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 15.0)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Sandwich(1)
+
+	Room 6:
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Starting play...
+Glutton_01 is fighting Vampire(health: 3.0)
+Glutton_01 rolled 3
+Vampire(health: 3.0) rolled 1
+Doing nothing for action for Vampire
+Doing nothing for action for Satanic Minion
+Doing nothing for action for Vampire
+Glutton_11 is fighting Vampire(health: 3.0)
+Glutton_11 rolled 1
+Vampire(health: 3.0) rolled 4
+Polymorphia MAZE: turn 1
+	Room 1:
+		Glutton_01(health: 4.5)
+		Vampire(health: 0.5)
+		Salad(1)
+		Sandwich(1)
+
+	Room 2:
+		Glutton_11(health: 1.5)
+		Vampire(health: 2.5)
+		Vanilla Oatmilk Latte(1)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 15.0)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Sandwich(1)
+
+	Room 6:
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Glutton_01 is fighting Vampire(health: 0.5)
+Glutton_01 rolled 2
+Vampire(health: 0.5) rolled 1
+Vampire just died!
+Doing nothing for action for Vampire
+Glutton_11 is fighting Vampire(health: 2.5)
+Glutton_11 rolled 6
+Vampire(health: 2.5) rolled 1
+Vampire just died!
+Doing nothing for action for Satanic Minion
+Polymorphia MAZE: turn 2
+	Room 1:
+		Glutton_01(health: 4.0)
+		Vampire(health: -0.5)
+		Salad(1)
+		Sandwich(1)
+
+	Room 2:
+		Glutton_11(health: 1.0)
+		Vampire(health: -2.5)
+		Vanilla Oatmilk Latte(1)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 15.0)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Sandwich(1)
+
+	Room 6:
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Glutton_11 just ate Vanilla Oatmilk Latte(1)
+Glutton_11 gained health: 1.0
+Glutton_01 just ate Salad(1)
+Glutton_01 gained health: 1.0
+Doing nothing for action for Satanic Minion
+Polymorphia MAZE: turn 3
+	Room 1:
+		Glutton_01(health: 5.0)
+		Vampire(health: -0.5)
+		Sandwich(1)
+
+	Room 2:
+		Glutton_11(health: 2.0)
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 15.0)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Sandwich(1)
+
+	Room 6:
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Glutton_01 just ate Sandwich(1)
+Glutton_01 gained health: 1.0
+Doing nothing for action for Satanic Minion
+Glutton_11 moved from Room 2 to Room 5
+Polymorphia MAZE: turn 4
+	Room 1:
+		Glutton_01(health: 6.0)
+		Vampire(health: -0.5)
+
+	Room 2:
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 15.0)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Glutton_11(health: 1.75)
+		Sandwich(1)
+
+	Room 6:
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Doing nothing for action for Satanic Minion
+Glutton_11 just ate Sandwich(1)
+Glutton_11 gained health: 1.0
+Glutton_01 moved from Room 1 to Room 4
+Demon is fighting Glutton_01(health: 5.75)
+Demon rolled 2
+Glutton_01(health: 5.75) rolled 6
+Polymorphia MAZE: turn 5
+	Room 1:
+		Vampire(health: -0.5)
+
+	Room 2:
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 10.5)
+		Glutton_01(health: 5.25)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Glutton_11(health: 2.75)
+
+	Room 6:
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Doing nothing for action for Satanic Minion
+Demon is fighting Glutton_01(health: 5.25)
+Demon rolled 5
+Glutton_01(health: 5.25) rolled 5
+Glutton_11 moved from Room 5 to Room 4
+Glutton_01 is fighting Demon(health: 10.0)
+Glutton_01 rolled 4
+Demon(health: 10.0) rolled 3
+Polymorphia MAZE: turn 6
+	Room 1:
+		Vampire(health: -0.5)
+
+	Room 2:
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 8.5)
+		Glutton_01(health: 4.25)
+		Glutton_11(health: 2.5)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+
+
+	Room 6:
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Demon is fighting Glutton_11(health: 2.5)
+Demon rolled 2
+Glutton_11(health: 2.5) rolled 3
+Demon is fighting Glutton_01(health: 4.25)
+Demon rolled 6
+Glutton_01(health: 4.25) rolled 6
+Glutton_11 just ate Vanilla Oatmilk Latte(1)
+Glutton_11 gained health: 1.0
+Glutton_01 is fighting Demon(health: 6.5)
+Glutton_01 rolled 1
+Demon(health: 6.5) rolled 4
+Doing nothing for action for Satanic Minion
+Polymorphia MAZE: turn 7
+	Room 1:
+		Vampire(health: -0.5)
+
+	Room 2:
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 6.0)
+		Glutton_01(health: 0.25)
+		Glutton_11(health: 3.0)
+
+	Room 5:
+
+
+	Room 6:
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Demon is fighting Glutton_01(health: 0.25)
+Demon rolled 2
+Glutton_01(health: 0.25) rolled 5
+Glutton_01 just died!
+Demon is fighting Glutton_11(health: 3.0)
+Demon rolled 3
+Glutton_11(health: 3.0) rolled 2
+Doing nothing for action for Satanic Minion
+Glutton_11 is fighting Demon(health: 2.0)
+Glutton_11 rolled 6
+Demon(health: 2.0) rolled 4
+Demon just died!
+Polymorphia MAZE: turn 8
+	Room 1:
+		Vampire(health: -0.5)
+
+	Room 2:
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 0.0)
+		Glutton_01(health: -0.25)
+		Glutton_11(health: 1.0)
+
+	Room 5:
+
+
+	Room 6:
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Doing nothing for action for Satanic Minion
+Glutton_11 moved from Room 4 to Room 5
+Polymorphia MAZE: turn 9
+	Room 1:
+		Vampire(health: -0.5)
+
+	Room 2:
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 0.0)
+		Glutton_01(health: -0.25)
+
+	Room 5:
+		Glutton_11(health: 0.75)
+
+	Room 6:
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Doing nothing for action for Satanic Minion
+Glutton_11 moved from Room 5 to Room 6
+Polymorphia MAZE: turn 10
+	Room 1:
+		Vampire(health: -0.5)
+
+	Room 2:
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 0.0)
+		Glutton_01(health: -0.25)
+
+	Room 5:
+
+
+	Room 6:
+		Glutton_11(health: 0.5)
+		Apple(1)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Doing nothing for action for Satanic Minion
+Glutton_11 just ate Apple(1)
+Glutton_11 gained health: 1.0
+Polymorphia MAZE: turn 11
+	Room 1:
+		Vampire(health: -0.5)
+
+	Room 2:
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 0.0)
+		Glutton_01(health: -0.25)
+
+	Room 5:
+
+
+	Room 6:
+		Glutton_11(health: 1.5)
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Doing nothing for action for Satanic Minion
+Glutton_11 moved from Room 6 to Room 3
+Polymorphia MAZE: turn 12
+	Room 1:
+		Vampire(health: -0.5)
+
+	Room 2:
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 3.0)
+		Glutton_11(health: 1.25)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 0.0)
+		Glutton_01(health: -0.25)
+
+	Room 5:
+
+
+	Room 6:
+
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Glutton_11 is fighting Satanic Minion(health: 3.0)
+Glutton_11 rolled 4
+Satanic Minion(health: 3.0) rolled 3
+Doing nothing for action for Satanic Minion
+Polymorphia MAZE: turn 13
+	Room 1:
+		Vampire(health: -0.5)
+
+	Room 2:
+		Vampire(health: -2.5)
+
+	Room 3:
+		Satanic Minion(health: 1.5)
+		Glutton_11(health: 0.75)
+		Apple(1)
+
+	Room 4:
+		Demon(health: 0.0)
+		Glutton_01(health: -0.25)
+
+	Room 5:
+
+
+	Room 6:
+
+
+	Room 7:
+		Sandwich(1)
+
+	Room 8:
+		Pancake(1)
+
+	Room 9:
+		Salad(1)
+Glutton_11 is fighting Satanic Minion(health: 1.5)
+Glutton_11 rolled 6
+Satanic Minion(health: 1.5) rolled 1
+Satanic Minion just died!
+The game ended after 14 turns.
+The adventurers won! Left standing are:
+Glutton_11(health: 0.25)

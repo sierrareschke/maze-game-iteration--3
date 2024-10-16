@@ -1,0 +1,423 @@
+Polymorphia MAZE: turn 0
+	Room 1:
+		Glutton_01(health: 5.0)
+		Ghost(health: 3.0)
+		Apple(1)
+		Sandwich(1)
+
+	Room 2:
+		Glutton_11(health: 5.0)
+		Goblin(health: 3.0)
+		Sandwich(1)
+
+	Room 3:
+		Ghoul(health: 3.0)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: 15.0)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Vanilla Oatmilk Latte(1)
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Starting play...
+Doing nothing for action for Goblin
+Doing nothing for action for Ghoul
+Doing nothing for action for Ghost
+Glutton_01 is fighting Ghost(health: 3.0)
+Glutton_01 rolled 5
+Ghost(health: 3.0) rolled 1
+Ghost just died!
+Glutton_11 is fighting Goblin(health: 3.0)
+Glutton_11 rolled 2
+Goblin(health: 3.0) rolled 3
+Polymorphia MAZE: turn 1
+	Room 1:
+		Glutton_01(health: 4.5)
+		Ghost(health: -1.0)
+		Apple(1)
+		Sandwich(1)
+
+	Room 2:
+		Glutton_11(health: 3.5)
+		Goblin(health: 2.5)
+		Sandwich(1)
+
+	Room 3:
+		Ghoul(health: 3.0)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: 15.0)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Vanilla Oatmilk Latte(1)
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Doing nothing for action for Ghoul
+Glutton_11 is fighting Goblin(health: 2.5)
+Glutton_11 rolled 2
+Goblin(health: 2.5) rolled 2
+Glutton_01 just ate Apple(1)
+Glutton_01 gained health: 1.0
+Doing nothing for action for Goblin
+Polymorphia MAZE: turn 2
+	Room 1:
+		Glutton_01(health: 5.5)
+		Ghost(health: -1.0)
+		Sandwich(1)
+
+	Room 2:
+		Glutton_11(health: 3.0)
+		Goblin(health: 2.0)
+		Sandwich(1)
+
+	Room 3:
+		Ghoul(health: 3.0)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: 15.0)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Vanilla Oatmilk Latte(1)
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Doing nothing for action for Ghoul
+Glutton_01 just ate Sandwich(1)
+Glutton_01 gained health: 1.0
+Glutton_11 is fighting Goblin(health: 2.0)
+Glutton_11 rolled 6
+Goblin(health: 2.0) rolled 1
+Goblin just died!
+Polymorphia MAZE: turn 3
+	Room 1:
+		Glutton_01(health: 6.5)
+		Ghost(health: -1.0)
+
+	Room 2:
+		Glutton_11(health: 2.5)
+		Goblin(health: -3.0)
+		Sandwich(1)
+
+	Room 3:
+		Ghoul(health: 3.0)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: 15.0)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Vanilla Oatmilk Latte(1)
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Glutton_01 moved from Room 1 to Room 4
+Glutton_11 just ate Sandwich(1)
+Glutton_11 gained health: 1.0
+Demon is fighting Glutton_01(health: 6.25)
+Demon rolled 3
+Glutton_01(health: 6.25) rolled 6
+Doing nothing for action for Ghoul
+Polymorphia MAZE: turn 4
+	Room 1:
+		Ghost(health: -1.0)
+
+	Room 2:
+		Glutton_11(health: 3.5)
+		Goblin(health: -3.0)
+
+	Room 3:
+		Ghoul(health: 3.0)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: 11.5)
+		Glutton_01(health: 5.75)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Vanilla Oatmilk Latte(1)
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Glutton_01 is fighting Demon(health: 11.5)
+Glutton_01 rolled 5
+Demon(health: 11.5) rolled 4
+Glutton_11 moved from Room 2 to Room 1
+Demon is fighting Glutton_01(health: 5.25)
+Demon rolled 5
+Glutton_01(health: 5.25) rolled 5
+Doing nothing for action for Ghoul
+Polymorphia MAZE: turn 5
+	Room 1:
+		Ghost(health: -1.0)
+		Glutton_11(health: 3.25)
+
+	Room 2:
+		Goblin(health: -3.0)
+
+	Room 3:
+		Ghoul(health: 3.0)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: 9.5)
+		Glutton_01(health: 4.75)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Vanilla Oatmilk Latte(1)
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Glutton_11 moved from Room 1 to Room 4
+Demon is fighting Glutton_11(health: 3.0)
+Demon rolled 2
+Glutton_11(health: 3.0) rolled 5
+Demon is fighting Glutton_01(health: 4.75)
+Demon rolled 1
+Glutton_01(health: 4.75) rolled 6
+Glutton_01 is fighting Demon(health: 0.5)
+Glutton_01 rolled 5
+Demon(health: 0.5) rolled 1
+Demon just died!
+Doing nothing for action for Ghoul
+Polymorphia MAZE: turn 6
+	Room 1:
+		Ghost(health: -1.0)
+
+	Room 2:
+		Goblin(health: -3.0)
+
+	Room 3:
+		Ghoul(health: 3.0)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: -3.5)
+		Glutton_01(health: 3.75)
+		Glutton_11(health: 2.5)
+		Vanilla Oatmilk Latte(1)
+
+	Room 5:
+		Vanilla Oatmilk Latte(1)
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Glutton_01 just ate Vanilla Oatmilk Latte(1)
+Glutton_01 gained health: 1.0
+Doing nothing for action for Ghoul
+Glutton_11 moved from Room 4 to Room 1
+Polymorphia MAZE: turn 7
+	Room 1:
+		Ghost(health: -1.0)
+		Glutton_11(health: 2.25)
+
+	Room 2:
+		Goblin(health: -3.0)
+
+	Room 3:
+		Ghoul(health: 3.0)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: -3.5)
+		Glutton_01(health: 4.75)
+
+	Room 5:
+		Vanilla Oatmilk Latte(1)
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Glutton_11 moved from Room 1 to Room 2
+Glutton_01 moved from Room 4 to Room 5
+Doing nothing for action for Ghoul
+Polymorphia MAZE: turn 8
+	Room 1:
+		Ghost(health: -1.0)
+
+	Room 2:
+		Goblin(health: -3.0)
+		Glutton_11(health: 2.0)
+
+	Room 3:
+		Ghoul(health: 3.0)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: -3.5)
+
+	Room 5:
+		Glutton_01(health: 4.5)
+		Vanilla Oatmilk Latte(1)
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Doing nothing for action for Ghoul
+Glutton_11 moved from Room 2 to Room 3
+Glutton_01 just ate Vanilla Oatmilk Latte(1)
+Glutton_01 gained health: 1.0
+Polymorphia MAZE: turn 9
+	Room 1:
+		Ghost(health: -1.0)
+
+	Room 2:
+		Goblin(health: -3.0)
+
+	Room 3:
+		Ghoul(health: 3.0)
+		Glutton_11(health: 1.75)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: -3.5)
+
+	Room 5:
+		Glutton_01(health: 5.5)
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Glutton_11 is fighting Ghoul(health: 3.0)
+Glutton_11 rolled 3
+Ghoul(health: 3.0) rolled 3
+Doing nothing for action for Ghoul
+Glutton_01 moved from Room 5 to Room 8
+Polymorphia MAZE: turn 10
+	Room 1:
+		Ghost(health: -1.0)
+
+	Room 2:
+		Goblin(health: -3.0)
+
+	Room 3:
+		Ghoul(health: 2.5)
+		Glutton_11(health: 1.25)
+		Pancake(1)
+
+	Room 4:
+		Demon(health: -3.5)
+
+	Room 5:
+
+
+	Room 6:
+		Pancake(1)
+
+	Room 7:
+		French Fries(1)
+
+	Room 8:
+		Glutton_01(health: 5.25)
+		Vanilla Oatmilk Latte(1)
+
+	Room 9:
+		Vanilla Oatmilk Latte(1)
+Glutton_01 just ate Vanilla Oatmilk Latte(1)
+Glutton_01 gained health: 1.0
+Glutton_11 is fighting Ghoul(health: 2.5)
+Glutton_11 rolled 5
+Ghoul(health: 2.5) rolled 2
+Ghoul just died!
+The game ended after 11 turns.
+The adventurers won! Left standing are:
+Glutton_11(health: 0.75)
+ Glutton_01(health: 6.25)
