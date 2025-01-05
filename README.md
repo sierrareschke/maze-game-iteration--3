@@ -1,9 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/5PzdTUsN)
-# OOAD Fall 2024 Homework 4:
 ## Adding the Factory and Builder Patterns
-### Value: 70 points
-
-    NOTE: Expect some minor edits/updates
 
 ## Project Report
 ### Introduction
@@ -29,31 +24,6 @@ The game files can be found in the main directory. They are named `./polymorphia
 ### Test Coverage
 ![](./hw_4_test_coverage.png)
 
-
-You will submit this assignment via a link to your GIT repository. If you are re-using a repository from
-a previous homework, create a branch called "Homework_4" and commit all changes
-for this assignment into that branch. And turn in a link to this branch.
-
-## Grading Rubric:
-
-### Deductions
-* Meaningful names for everything: variables, methods, classes, interfaces, etc. (1% off for each bad name, up to 10% total)
-* No "magic" numbers or strings (1% off for each one, up to 10%)
-* Unit tests: 100% method coverage  (1% off for each 5% below 100%)
-* No System.out.println() calls anywhere in your main code – replace with logging (see below) or eliminate outright. 1% off for each System.out.println statement in src/main/java code.
-* 1% deduction for each missing required addition to the README.md (game outputs, screenshots, diagrams)
-
-### Method Construction Possible Deductions (max is listed under Required Capabilities)
-
-Methods should be:
-* "short" -- with very few exceptions all methods should fit on a screen using a readable font.
-* well named (duh).
-* properly denoted as instance methods vs. static methods (static methods don't reference the _this_ pointer).
-* limited complexity (level of indentation due to control structures).
-* not have comments that could be turned into just as readable code.
-
-All of this can be achieved through functional decomposition of more complicated methods (see lecture on October 2nd).
-
 ### Required Capabilities
 
 * Add a screenshot of your code coverage to your README.md (5 points)
@@ -64,7 +34,7 @@ All of this can be achieved through functional decomposition of more complicated
 * Use the Factory pattern in your Maze.Builder class (12 points creating required concrete classes and 3 points for method construction - 15 total points)
 
 ## Extending the Game
-We’re going to extend the game in this assignment, making the game a bit more interesting and creating a situation where we’d want to use the Factory pattern.
+This extension of the game makes it more interesting and implements the Factory pattern.
 
 First, create a new subclass of your Creature class:
 
@@ -241,30 +211,3 @@ Creature, Demon, and Food (there are none of Food).
 
 Pass these factories into your Maze.Builder class at construction time, or it's okay for Maze.Builder to create
 the factories itself.
-
-## Submission and Grading
-The submission will be a URL to the GitHub repository. The repository should contain well-structured OO Java code for the Polymorphia simulation, and a README file that has the names of the team members, the Java version, and any other comments on the work – including documenting any assumptions or interpretations of the problem. Only one URL submission is required per team.
-The points are described above, including 5 points for the required tests. Include a screenshot of your code coverage. It should look something like this:
-
-## Github Guidelines
-Since Homework 4 is a team assignment, only one repository submission is required per team. Hence, 
-please do the following:
-Only one team member submits the repository link in Canvas.
-Please do not make the repositories public since this violates the Honor Code.
-Please note that repositories not established using the GitHub Classroom link will not be considered valid 
-for submission. 
-Please contact the class staff if you encounter technical difficulties or have questions about the setup process.
-
-## Overall Project Guidelines
-Assignments will be accepted late for one day only with a penalty of 10%. After one day, assignments will be 
-given a 0 and will not be graded.
-Use office hours, e-mail, or Piazza to reach the class staff regarding homework questions or if you have 
-issues completing the assignment.
-
-Output should look similar to the last homework, but
-with more maze construction options.
-
-
-
-
-
