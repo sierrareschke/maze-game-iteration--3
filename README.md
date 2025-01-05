@@ -1,6 +1,5 @@
 ## Adding the Factory and Builder Patterns
 
-## Project Report
 ### Introduction
     Team Members: Grace Ohlsen, Nolan Brady, Sierra Reschke
     Java Version: 21
